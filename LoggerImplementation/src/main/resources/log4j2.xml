@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30">
+	<Properties>
+		<Property name="LOG_PATTERN">
+			[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+		</Property>
+	</Properties>
+	<Appenders>
+		<Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+		</Console>
+		<File name="App-File-Appender" fileName="E:/Project/logs/app_log.log">
+			<PatternLayout>
+				<pattern>
+					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+		</File>
+	</Appenders>
+	<Loggers>
+		<Logger name="LoggerImplementation" level="debug" additivity="false">
+			<AppenderRef ref="ConsoleAppender" />
+		</Logger>
+		<Logger name="com.example.Logger.controller" level="info"
+			additivity="false">
+			<AppenderRef ref="App-File-Appender" />
+			<AppenderRef ref="Console-Appender" />
+		</Logger>
+		<Root level="info">
+			<AppenderRef ref="ConsoleAppender" />
+		</Root>
+	</Loggers>
+</Configuration>
