@@ -75,6 +75,7 @@ public class UserServiceImpl implements UserService{
     }
  
     private static List<User> populateDummyUsers(){
+    	System.out.println("CHecking Code Change");
         List<User> users = new ArrayList<User>();
         users.add(new User(counter.incrementAndGet(),"Sam",30, 70000));
         users.add(new User(counter.incrementAndGet(),"Tom",40, 50000));
